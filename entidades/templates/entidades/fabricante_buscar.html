@@ -1,0 +1,56 @@
+{% extends "entidades/index.html" %}
+{% load static %}
+
+{% block titulo_pagina %}{{ titulo }}{% endblock titulo_pagina %}
+
+{% block contenido_principal %}
+<section class="page-section bg-light" id="busqueda">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">{{ titulo }}</h2>
+            <h3 class="section-subheading text-muted">Búsqueda por nombre del Fabricante.</h3>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-lg-6 mx-auto">
+                <form action="{% url 'buscar_fabricantes' %}" method="GET" class="d-flex">
+                    <input type="text" 
+                           name="buscar" 
+                           placeholder="Ingrese nombre a buscar..."
+                           value="{{ patron }}"
+                           class="form-control me-2">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                {% if fabricantes %}
+                <h4>Resultados ({{ fabricantes|length }} encontrados):</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>País de Origen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for fab in fabricantes %}
+                        <tr>
+                            <td>{{ fab.id }}</td>
+                            <td>{{ fab.nombre }}</td>
+                            <td>{{ fab.pais_origen }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                    <p class="text-center text-muted">No se encontraron fabricantes que coincidan con "{{ patron }}".</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock contenido_principal %}

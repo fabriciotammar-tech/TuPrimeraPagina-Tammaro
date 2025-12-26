@@ -1,0 +1,20 @@
+{% extends "entidades/padre.html" %} {% block content %}
+<div style="margin: 20px;">
+    <h2>Editar mi Perfil</h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {% if user.avatar %}
+            <div style="margin-bottom: 10px;">
+                <p>Tu avatar actual:</p>
+                <img src="{{ user.avatar.imagen.url }}" alt="Avatar" style="width: 100px; height: 100px; border-radius: 50%;">
+            </div>
+        {% endif %}
+
+        {{ form.as_p }}
+        
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

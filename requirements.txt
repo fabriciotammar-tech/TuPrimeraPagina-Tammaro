@@ -1,0 +1,11 @@
+asgiref==3.11.0
+Django==5.2.8
+django-ckeditor==6.7.3
+django-js-asset==3.1.2
+modelo_clientes_bicicletas @ file:///C:/Users/Fabricio/desktop/Python/Proyecto%20final/dist/modelo_clientes_bicicletas-1.0.0-py3-none-any.whl#sha256=e7409f2df7688976b9311d510414379efad9672b78bbe616dd1209bc399a689c
+pillow==12.0.0
+setuptools==80.9.0
+somepackage==1.2.3
+sqlparse==0.5.3
+tzdata==2025.2
+wheel==0.45.1
